@@ -28,6 +28,7 @@ struct buffer_select {
 
 void set_buffers(enum screen screen, struct buffer_select *select)
 {
+    /*
     if (screen == screen_top_left || screen == screen_top_right) {
         select->buffer1 = framebuffers->top_left;
         select->buffer2 = framebuffers->top_right;
@@ -36,10 +37,12 @@ void set_buffers(enum screen screen, struct buffer_select *select)
         select->buffer1 = framebuffers->bottom;
         select->size = SCREEN_BOTTOM_SIZE;
     }
+    */
 }
 
 void clear_screen(enum screen screen)
 {
+    /*
     struct buffer_select select = {0};
     set_buffers(screen, &select);
 
@@ -48,17 +51,21 @@ void clear_screen(enum screen screen)
     if (select.buffer2) {
         memset32(select.buffer2, 0, select.size);
     }
+    */
 }
 
 void clear_screens()
 {
+    /*
     clear_screen(screen_top_left);
     clear_screen(screen_bottom);
     print_pos = 0;
+    */
 }
 
 void draw_character(enum screen screen, char character, int pos_x, int pos_y, uint32_t color)
 {
+    /*
     struct buffer_select select = {0};
     set_buffers(screen, &select);
 
@@ -82,10 +89,12 @@ void draw_character(enum screen screen, char character, int pos_x, int pos_y, ui
             }
         }
     }
+    */
 }
 
 int draw_string(enum screen screen, const char *string, int pos_x, int pos_y, uint32_t color)
 {
+    /*
     int length = strlen(string);
 
     int screen_width;
@@ -111,10 +120,12 @@ int draw_string(enum screen screen, const char *string, int pos_x, int pos_y, ui
     }
 
     return pos_y;
+    */
 }
 
 void print(const char *string)
 {
+    /*
     // I'll just assume both screens have the same height.
     if (print_pos > (SCREEN_TOP_HEIGHT - 30) / SPACING_VERT) {
         clear_screen(print_screen);
@@ -123,4 +134,5 @@ void print(const char *string)
 
     int pos = draw_string(print_screen, string, 10, 10 + SPACING_VERT * print_pos, 0xFFFFFF);
     print_pos = pos / SPACING_VERT;
+    */
 }
